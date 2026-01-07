@@ -1,0 +1,30 @@
+.navbar-brand {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.navbar-user {
+  font-weight: 600;
+}
+
+.navbar-logout {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.navbar-logout:hover {
+  transform: translateY(-1px);
+}

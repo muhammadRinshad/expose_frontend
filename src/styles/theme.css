@@ -1,0 +1,22 @@
+:root {
+  --bg-main: #E4F3A2;
+  --accent: #5faeb1;
+  --accent-soft: #7bbdbf;
+  --text-dark: #111;
+  --text-muted: #666;
+  --card-bg: #ffffff;
+  --border-soft: rgba(0,0,0,0.06);
+}
+
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-dark);
+}

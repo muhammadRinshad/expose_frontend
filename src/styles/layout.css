@@ -1,0 +1,66 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR FIX */
+.dashboard-sidebar {
+  width: 260px;
+  position: fixed;
+  inset: 0 auto 0 0;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-right: 1px solid var(--border-soft);
+  padding: 28px 20px;
+  z-index: 100;
+}
+
+/* MAIN AREA */
+.dashboard-main {
+  margin-left: 260px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* NAVBAR FIX */
+.navbar {
+  height: 72px;
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border-soft);
+  z-index: 99;
+}
+
+/* SCROLLABLE CONTENT */
+.dashboard-content {
+  margin-top: 72px;
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* PAGE ANIMATION */
+.page-wrapper {
+  animation: fadeSlide 0.45s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

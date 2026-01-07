@@ -1,0 +1,132 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #E4F3A2, #E4F3A2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-form input:focus {
+  box-shadow: 0 0 0 3px rgba(95, 174, 177, 0.25);
+}
+
+.login-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.login-form button:active {
+  transform: scale(0.98);
+}
+
+.google-btn img {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+}
+
+.brand {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 48px;
+  color: #000;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.login-form input {
+  padding: 20px 22px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+.login-form input::placeholder {
+  color: #b5b5b5;
+}
+
+.login-form button {
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* 🔥 Primary Login Button */
+.login-form button[type="submit"] {
+  background: linear-gradient(135deg, #7bbdbf, #5faeb1);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(95, 174, 177, 0.4);
+}
+
+.login-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+}
+
+/* 🔐 Google Button */
+.google-btn {
+  background: #ffffff;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.google-btn:hover {
+  transform: translateY(-2px);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.error {
+  color: #e53935;
+  text-align: center;
+  font-size: 14px;
+}
+.auth-switch {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-switch span {
+  margin-left: 6px;
+  color: #5faeb1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-switch span:hover {
+  text-decoration: underline;
+}
+.page-wrapper {
+  animation: fadeSlide 0.45s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
