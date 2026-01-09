@@ -1,0 +1,127 @@
+/* 🌑 Overlay */
+.cropper-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* 📦 Cropper box */
+.cropper-box {
+  width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🧠 Title */
+.cropper-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+/* 🖼️ Image area */
+.cropper-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 🔍 Zoom */
+.cropper-zoom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.cropper-zoom input {
+  flex: 1;
+}
+
+/* 🎯 Actions */
+.cropper-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cropper-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* ❌ Cancel */
+.cropper-cancel {
+  background: #eee;
+  color: #333;
+}
+
+.cropper-cancel:hover {
+  background: #ddd;
+}
+
+/* ✅ Done */
+.cropper-done {
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(95, 174, 177, 0.35);
+}
+
+.cropper-done:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cropper-done:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.cropper-ratios {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.cropper-ratios button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  background: #f1f1f1;
+  cursor: pointer;
+}
+
+.cropper-ratios button:hover {
+  background: #e5e5e5;
+}

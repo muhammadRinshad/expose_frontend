@@ -1,8 +1,10 @@
-
 import { useState, useEffect } from "react";
 import API from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+
+import ImageCropper from "../components/ImageCropper";
+import getCroppedImg from "../utils/cropImage";
 
 export default function EditProfile() {
   const { user, setUser } = useAuth();
@@ -17,9 +19,12 @@ export default function EditProfile() {
 
   const [avatarFile, setAvatarFile] = useState(null);
   const [avatarPreview, setAvatarPreview] = useState("");
+  const [rawImage, setRawImage] = useState(null);
+  const [showCropper, setShowCropper] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [dirty, setDirty] = useState(false); // 🔥 track changes
+  const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -38,12 +43,28 @@ export default function EditProfile() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // 🔥 IMAGE SELECT (OPEN CROPPER)
   const handleFile = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+
     setDirty(true);
-    setAvatarFile(file);
-    setAvatarPreview(URL.createObjectURL(file));
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setRawImage(reader.result);
+      setShowCropper(true);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // 🔥 AFTER CROPPING
+  const onCropDone = async (cropPixels) => {
+    const blob = await getCroppedImg(rawImage, cropPixels);
+
+    setAvatarFile(blob);
+    setAvatarPreview(URL.createObjectURL(blob));
+    setShowCropper(false);
   };
 
   const submit = async (e) => {
@@ -81,7 +102,7 @@ export default function EditProfile() {
 
       <form onSubmit={submit} className="login-form">
 
-        {/* 🔥 AVATAR PREVIEW */}
+        {/* 🔥 AVATAR */}
         <div className="avatar-edit">
           <div className="avatar-preview">
             {avatarPreview ? (
@@ -93,7 +114,12 @@ export default function EditProfile() {
 
           <label className="avatar-upload-btn">
             Change Photo
-            <input type="file" accept="image/*" onChange={handleFile} hidden />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleFile}
+              hidden
+            />
           </label>
         </div>
 
@@ -119,7 +145,7 @@ export default function EditProfile() {
           onChange={handleChange}
         />
 
-        {/* 🔐 PRIVATE TOGGLE */}
+        {/* 🔐 PRIVATE */}
         <div className="toggle-row">
           <span>Private Account</span>
           <label className="toggle-switch">
@@ -135,7 +161,6 @@ export default function EditProfile() {
           </label>
         </div>
 
-        {/* 🔥 ACTION BUTTONS */}
         <div className="edit-actions">
           <button type="submit" disabled={loading}>
             {loading ? "Updating..." : "Save Changes"}
@@ -152,6 +177,15 @@ export default function EditProfile() {
           )}
         </div>
       </form>
+
+      {/* 🔥 CROPPER MODAL */}
+      {showCropper && (
+        <ImageCropper
+          image={rawImage}
+          onCropDone={onCropDone}
+          onCancel={() => setShowCropper(false)}
+        />
+      )}
     </div>
   );
 }

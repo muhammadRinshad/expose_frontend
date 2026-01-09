@@ -39,8 +39,8 @@ export default function Profile() {
           {/* STATS */}
           <div className="profile-stats">
             <span><strong>0</strong> Posts</span>
-            <span><strong>0</strong> Followers</span>
-            <span><strong>0</strong> Following</span>
+            <span><strong>{user.followers?.length || 0}</strong> Followers</span>
+            <span><strong>{user.following?.length || 0}</strong> Following</span>
           </div>
 
           {/* EDIT PROFILE */}

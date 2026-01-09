@@ -13,6 +13,11 @@ import "./styles/navbar.css";
 import "./styles/home.css";
 import "./styles/profile.css";
 import "./styles/editProfile.css";
+import "./styles/searchpage.css";
+import "./styles/ImageCropper.css";
+import "./styles/addPost.css";
+import "./styles/preview.css";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

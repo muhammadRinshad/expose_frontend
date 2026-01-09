@@ -1,0 +1,75 @@
+/* Fullscreen dark overlay */
+.cropper-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Main crop box */
+.cropper-box {
+  position: relative;
+  width: 420px;
+  height: 520px;
+  background: #0f172a; /* dark premium */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cropper area */
+.cropper-box > div:first-child {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Zoom slider */
+.cropper-box input[type="range"] {
+  margin: 16px 0;
+  accent-color: #6366f1;
+}
+
+/* Action buttons container */
+.cropper-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  z-index: 20;
+}
+
+/* Buttons */
+.cropper-actions button {
+  flex: 1;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Cancel */
+.cropper-actions button:first-child {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+/* Crop / Save */
+.cropper-actions button:last-child {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+}
+
+.cropper-actions button:hover {
+  opacity: 0.9;
+}
