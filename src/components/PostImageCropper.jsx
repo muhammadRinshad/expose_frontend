@@ -4,8 +4,8 @@ import "../styles/imageCropper.css";
 
 const ASPECTS = {
   // square: 1 / 1,
-  portrait: 4 / 5,
-  // landscape: 16 / 9
+  // portrait: 4 / 5,
+  landscape: 16 / 9
 };
 
 export default function PostImageCropper({
@@ -42,12 +42,8 @@ export default function PostImageCropper({
           />
         </div>
 
-        {/* 🔄 ASPECT RATIO SWITCH */}
-        <div className="cropper-ratios">
-          {/* <button onClick={() => setAspect(ASPECTS.square)}>1:1</button> */}
-          {/* <button onClick={() => setAspect(ASPECTS.portrait)}>4:5</button> */}
-          {/* <button onClick={() => setAspect(ASPECTS.landscape)}>16:9</button> */}
-        </div>
+       
+       
 
         {/* 🔍 ZOOM */}
         <div className="cropper-zoom">

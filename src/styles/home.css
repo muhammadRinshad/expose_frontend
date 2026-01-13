@@ -90,3 +90,52 @@
   border-radius: 12px;
   object-fit: cover;
 }
+.notif-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  animation: slideUp .4s ease;
+  z-index: 9999;
+}
+
+.notif-popup img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.like-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease;
+  user-select: none;
+}
+
+/* Heart animation when clicked */
+.like-btn:active {
+  transform: scale(1.3);
+}
+
+/* Red state for liked button */
+.like-btn.liked {
+  color: #ff3040; /* Instagram red */
+}
+
+.likes-count {
+  font-size: 14px;
+  color: #262626;
+}

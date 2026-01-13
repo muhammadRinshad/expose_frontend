@@ -1,97 +1,4 @@
 
-// import { Routes, Route } from "react-router-dom";
-// import ProtectedRoute from "./routes/ProtectedRoute";
-// import DashboardLayout from "./layouts/DashboardLayout";
-
-// /* Pages */
-// import Home from "./pages/Home";
-// import Login from "./pages/Login";
-// import Register from "./pages/Register";
-// import Profile from "./pages/Profile";
-// import EditProfile from "./pages/EditProfile";
-// import Search from "./pages/Search";
-// import UserProfile from "./pages/UserProfile";
-// import Notifications from "./pages/Notifications";
-
-// export default function App() {
-//   return (
-//     <Routes>
-//       {/* ================= PUBLIC ================= */}
-//       <Route path="/login" element={<Login />} />
-//       <Route path="/register" element={<Register />} />
-
-//       {/* ================= HOME ================= */}
-//       <Route
-//         path="/"
-//         element={
-//           <ProtectedRoute>
-//             <DashboardLayout>
-//               <Home />
-//             </DashboardLayout>
-//           </ProtectedRoute>
-//         }
-//       />
-
-//       {/* ================= SEARCH ================= */}
-//       <Route
-//         path="/search"
-//         element={
-//           <ProtectedRoute>
-//             <DashboardLayout>
-//               <Search />
-//             </DashboardLayout>
-//           </ProtectedRoute>
-//         }
-//       />
-
-//       {/* ================= OWN PROFILE (NO PARAMS) ================= */}
-//       <Route
-//         path="/profile"
-//         element={
-//           <ProtectedRoute>
-//             <DashboardLayout>
-//               <Profile />
-//             </DashboardLayout>
-//           </ProtectedRoute>
-//         }
-//       />
-
-//       {/* ================= EDIT PROFILE ================= */}
-//       <Route
-//         path="/edit-profile"
-//         element={
-//           <ProtectedRoute>
-//             <DashboardLayout>
-//               <EditProfile />
-//             </DashboardLayout>
-//           </ProtectedRoute>
-//         }
-//       />
-// <Route
-//   path="/notifications"
-//   element={
-//     <ProtectedRoute>
-//       <DashboardLayout>
-//         <Notifications />
-//       </DashboardLayout>
-//     </ProtectedRoute>
-//   }
-// />
-
-//       {/* ================= OTHER USER PROFILE ================= */}
-//       <Route
-//         path="/user/:username"
-//         element={
-//           <ProtectedRoute>
-//             <DashboardLayout>
-//               <UserProfile />
-//             </DashboardLayout>
-//           </ProtectedRoute>
-//         }
-//       />
-//     </Routes>
-//   );
-// }
 
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute";
@@ -108,9 +15,12 @@ import UserProfile from "./pages/UserProfile";
 import Notifications from "./pages/Notifications";
 import AddPost from "./pages/AddPost"; // ✅ NEW
 import ErrorBoundary from "./components/ErrorBoundary";
+import NotificationPopup from "./components/NotificationPopup";
 
 export default function App() {
   return (
+    <>
+    <NotificationPopup />
     <Routes>
       {/* ================= PUBLIC ================= */}
       <Route path="/login" element={<Login />} />
@@ -128,7 +38,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= ADD POST ================= */}
       <Route
@@ -140,7 +50,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= SEARCH ================= */}
       <Route
@@ -152,7 +62,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= NOTIFICATIONS ================= */}
       <Route
@@ -164,7 +74,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= OWN PROFILE ================= */}
       <Route
@@ -176,7 +86,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= EDIT PROFILE ================= */}
       <Route
@@ -188,7 +98,7 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
 
       {/* ================= OTHER USER PROFILE ================= */}
       <Route
@@ -200,7 +110,8 @@ export default function App() {
             </DashboardLayout>
           </ProtectedRoute>
         }
-      />
+        />
     </Routes>
+        </>
   );
 }
